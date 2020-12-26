@@ -9,7 +9,7 @@ public class NBody{
 		return secondItemInFile;
 	}
 
-	public static Planet[] readplanets(String Filename){
+	public static Planet[] readPlanets(String Filename){
 	 
 		In in = new In(Filename);
 		int firstItemInFile = in.readInt();
@@ -36,7 +36,7 @@ public class NBody{
 		double T = Double.parseDouble(args[0]);
 		double dt = Double.parseDouble(args[1]);
 		String filename = args[2];
-		Planet[] planets = readplanets(filename);
+		Planet[] planets = readPlanets(filename);
 		double radius = readRadius(filename);
 
 		int waitTimeMilliseconds = 10;
