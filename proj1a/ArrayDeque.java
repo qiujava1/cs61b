@@ -40,7 +40,7 @@ public class ArrayDeque<T> {
     }
 
     private void downsize() {
-        resize(size / 2);
+        resize(items.length / 2);
     }
 
     private void resize(int capacity) {
