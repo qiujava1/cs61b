@@ -2,7 +2,7 @@ public class LinkedListDeque<T> {
     private Node sentinel;
     private int size;
 
-    public class Node {
+    private class Node {
         T item;
         Node next;
         Node prev;
@@ -21,21 +21,22 @@ public class LinkedListDeque<T> {
         size = 0;
     }
 
-    public LinkedListDeque(LinkedListDeque other) {
-        size = other.size;
-        sentinel = new Node(null, null, null);
-        Node ptr = other.sentinel.next;
-        Node ptr1 = new Node(ptr.item, sentinel, sentinel);
-        sentinel.next = ptr1;
-        sentinel.prev = ptr1;
-        while (ptr.next != other.sentinel) {
-            ptr = ptr.next;
-            Node temp = new Node(ptr.item, sentinel, ptr1);
-            sentinel.prev = temp;
-            ptr1.next = temp;
-            ptr1 = ptr1.next;
-        }
-    }
+    /* for the autograder, comment the constructor */
+//    public LinkedListDeque(LinkedListDeque other) {
+//        size = other.size;
+//        sentinel = new Node(null, null, null);
+//        Node ptr = other.sentinel.next;
+//        Node ptr1 = new Node(ptr.item, sentinel, sentinel);
+//        sentinel.next = ptr1;
+//        sentinel.prev = ptr1;
+//        while (ptr.next != other.sentinel) {
+//            ptr = ptr.next;
+//            Node temp = new Node(ptr.item, sentinel, ptr1);
+//            sentinel.prev = temp;
+//            ptr1.next = temp;
+//            ptr1 = ptr1.next;
+//        }
+//    }
 
     public void addFirst(T item) {
         Node first = new Node(item, sentinel.next, sentinel);
@@ -105,7 +106,7 @@ public class LinkedListDeque<T> {
         return getRecursive(index, sentinel.next);
     }
 
-    public T getRecursive(int index, Node curr) {
+    private T getRecursive(int index, Node curr) {
         if (index == 0) {
             return curr.item;
         }
