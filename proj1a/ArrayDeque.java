@@ -105,5 +105,23 @@ public class ArrayDeque<T> {
         return temp;
 
     }
-    
+
+    public T get(int index) {
+        int indexOfArray = (nextFirst + index + 1) % items.length;
+        return items[indexOfArray];
+    }
+
+    public static void main(String[] args) {
+        ArrayDeque<String> test = new ArrayDeque<>();
+        test.addFirst("a");
+        test.addFirst("b");
+        test.addFirst("c");
+        test.addFirst("d");
+        test.addFirst("e");
+        test.addLast("f");
+        test.addLast("g");
+        test.addLast("h");
+        test.addLast("i");
+        System.out.print(test.get(8));
+    }
 }
